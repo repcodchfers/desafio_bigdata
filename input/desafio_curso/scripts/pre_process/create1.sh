@@ -1,6 +1,7 @@
 #!/bin/bash
 
-TABLES=("CLIENTES")
+TABLES=("DIVISAO" "ENDERECO" "REGIAO" "VENDAS")
+
 for i in "${TABLES[@]}"
 do
     echo "tabela $i"
