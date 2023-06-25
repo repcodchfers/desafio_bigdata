@@ -4,4 +4,4 @@
 spark-submit \
     --master local[*] \
     --deploy-mode client \
-    ../scripts/process/process.py
+    ../scripts/process/process_run.py
