@@ -139,10 +139,10 @@ df_stage = spark.sql(sql)
 
 # Criação da tabela STAGE
 df_stage = spark.sql(sql)
-df_stage = df_stage.withColumn('Ano', year(to_timestamp(df_stage.invoice_date,"dd/mm/YYYY")))
-df_stage = df_stage.withColumn('Mes', month(to_timestamp(df_stage.invoice_date,"dd/mm/YYYY")))
-df_stage = df_stage.withColumn('Dia', dayofmonth(to_timestamp(df_stage.invoice_date,"dd/mm/YYYY")))
-df_stage = df_stage.withColumn('Trimestre', quarter(to_timestamp(df_stage.invoice_date,"dd/mm/YYYY")))
+df_stage = df_stage.withColumn('Ano', year(to_timestamp(df_stage.invoice_date,"dd/MM/yyyy")))
+df_stage = df_stage.withColumn('Mes', month(to_timestamp(df_stage.invoice_date,"dd/MM/yyyy")))
+df_stage = df_stage.withColumn('Dia', dayofmonth(to_timestamp(df_stage.invoice_date,"dd/MM/yyyy")))
+df_stage = df_stage.withColumn('Trimestre', quarter(to_timestamp(df_stage.invoice_date,"dd/MM/yyyy")))
 
 # Criação dos Campos Calendario para dimension tempo
 #df_stage = (df_stage
@@ -283,8 +283,8 @@ def salvar_df(df, file):
 # In[30]:
 
 
-salvar_df(ft_vendas, 'ft_vendas')
-salvar_df(dim_clientes, 'dim_clientes')
-salvar_df(dim_tempo, 'dim_tempo')
-salvar_df(dim_localidade, 'dim_localidade')
+salvar_df(ft_vendas, 'ft_vendas1')
+salvar_df(dim_clientes, 'dim_clientes1')
+salvar_df(dim_tempo, 'dim_tempo1')
+salvar_df(dim_localidade, 'dim_localidade1')
 
