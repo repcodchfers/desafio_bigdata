@@ -4,6 +4,8 @@ DESAFIO BIG DATA/MODELAGEM
 O objetivo do desafio é realizar a ingestão de uma fonte de dados raw .csv (banco de dados relacional de vendas) para a estrutura hdfs datalake/gold, realizar o processamento e limpeza dos dados das tabelas hive usando o pyspark e então levar os dados num modelo star schema e ser consumido em seguida, por uma ferramenta de visualização para criar relatórios e dashboards 
 
 ETAPAS
+
+
 Etapa 1 - Enviar os arquivos para o HDFS
     - por meio de um shell script realizou-se a copia desde a pasta de dados raw (vendas.csv;clientes.csv;endereço.csv;região.csv;divisão.csv) para a estrutura hdfs /datalake/gold
 
