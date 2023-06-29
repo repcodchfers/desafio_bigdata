@@ -30,6 +30,13 @@ Etapa 4 - Gravar as informações em tabelas dimensionais em formato cvs delimit
 Etapa 5 - Exportar os dados para a pasta desafio_curso/gold
 
 Etapa 6 – Criação do relatório com indicadores e gráficos de vendas
+        - vendas por cliente
+        - vendas por ano
+        - vendas por estado
+        - valor total vendas
+        - TBL_ENDERECO
+        - TBL_REGIAO
+        - TBL_DIVISAO
     •	Vendas por cliente
     •	Vendas por ano
     •	Vendas por estado
