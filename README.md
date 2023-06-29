@@ -1,32 +1,24 @@
 # desafio_bigdata
 DESAFIO BIG DATA/MODELAGEM
 
-📌 ESCOPO DO DESAFIO
-Neste desafio serão feitas as ingestões dos dados que estão na pasta /raw onde vamos ter alguns arquivos .csv de um banco relacional de vendas.
+O objetivo do desafio é realizar a ingestão de uma fonte de dados raw .csv (banco de dados relacional de vendas) para a estrutura hdfs datalake/gold, realizar o processamento e limpeza dos dados das tabelas hive usando o pyspark e então levar os dados num modelo star schema e ser consumido em seguida, por uma ferramenta de visualização para criar relatórios e dashboards 
 
- - VENDAS.CSV
- - CLIENTES.CSV
- - ENDERECO.CSV
- - REGIAO.CSV
- - DIVISAO.CSV
-
-Seu trabalho como engenheiro de dados/arquiteto de BI é prover dados em uma pasta desafio_curso/gold em .csv para ser consumido por um relatório em PowerBI que deverá ser construído dentro da pasta 'app' (já tem o template).
-
-📑 ETAPAS
+ETAPAS
 Etapa 1 - Enviar os arquivos para o HDFS
-    - nesta etapa lembre de criar um shell script para fazer o trabalho repetitivo (não é obrigatório)
+    - por meio de um shell script realizou-se a copia desde a pasta de dados raw (vendas.csv;clientes.csv;endereço.csv;região.csv;divisão.csv) para a estrutura hdfs /datalake/gold
 
-Etapa 2 - Criar o banco DEASFIO_CURSO e dentro tabelas no Hive usando o HQL e executando um script shell dentro do hive server na pasta scripts/pre_process.
+Etapa 2 – Por médio de um script executar sentenças Hive . hql(scripts/pre_process) para criar o banco de dados desafio_curso e as tabelas: 
 
-    - DESAFIO_CURSO (nome do banco)
         - TBL_VENDAS
         - TBL_CLIENTES
         - TBL_ENDERECO
         - TBL_REGIAO
         - TBL_DIVISAO
 
-Etapa 3 - Processar os dados no Spark Efetuando suas devidas transformações criando os arquivos com a modelagem de BI.
-OBS. o desenvolvimento pode ser feito no jupyter porem no final o codigo deve estar no arquivo desafio_curso/scripts/process/process.py
+Etapa 3 - Processar os dados no Spark Efetuando suas devidas transformações criando os arquivos com a modelagem de BI por meio do script python desafio_curso/scripts/process/process1.py
+Nessa etapa são aplicadas transformações utilizando dataframe spark e usando sentenças Sql (remover linhas duplicadas e com valores nulos; substituir  valores nulos em campos com o texto “não informado”)
+ 
+![diagstar2](https://github.com/repcodchfers/desafio_bigdata/assets/86985900/103ebf00-e29d-4a74-8c74-138da5ec568d)
 
 Etapa 4 - Gravar as informações em tabelas dimensionais em formato cvs delimitado por ';'.
 
@@ -37,23 +29,8 @@ Etapa 4 - Gravar as informações em tabelas dimensionais em formato cvs delimit
 
 Etapa 5 - Exportar os dados para a pasta desafio_curso/gold
 
-Etapa 6 - Criar e editar o PowerBI com os dados que você trabalhou.
-
-No PowerBI criar gráficos de vendas.
-Etapa 7 - Criar uma documentação com os testes e etapas do projeto.
-
-REGRAS
-Campos strings vazios deverão ser preenchidos com 'Não informado'.
-Campos decimais ou inteiros nulos ou vazios, deversão ser preenchidos por 0.
-Atentem-se a modelagem de dados da tabela FATO e Dimensão.
-Na tabela FATO, pelo menos a métrica <b>valor de venda</b> é um requisito obrigatório.
-Nas dimensões deverá conter valores únicos, não deverá conter valores repetidos.
-para a dimensão tempo considerar o campo da TBL_VENDAS <b>Invoice Date</b>
-
-INSTRUÇÕES
-vocês deveram me entregar o projeto no github e por email (zip)
-meu email: cgomesf@minsait.com
-nome do email: DESAFIO MINSAIT BI/BIGDATA (Aluno)
-dentro deste email o zip e o link para o github onde estará o projeto.
-prazo limite: até <b>24/06/2023<b>
-Apos esta data não poderei considerar para a nota.
+Etapa 6 – Criação do relatório com indicadores e gráficos de vendas
+•	Vendas por cliente
+•	Vendas por ano
+•	Vendas por estado
+•	Valor total de vendas
